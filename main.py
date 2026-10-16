@@ -1,15 +1,7 @@
 from graph import StateGraph
 from states import State
-def diff(a,b):
-    i,j = a.index(0),b.index(0)
-    if j == i-3:
-        return 'u'
-    if j == i+3:
-        return 'd'
-    if j == i+1:
-        return 'r'
-    if j == i-1:
-        return 'l'
+import tk
+from time import sleep
 sg = None
 with open("inputs.txt","r") as f:
     s = f.read()
@@ -21,11 +13,15 @@ with open("inputs.txt","r") as f:
 res = sg.A_star()
 if res == None:
     print('puzzle is unsolveable')
-else:
-    s = ''
-    for i in range(len(res)-1):
-        s+=diff(res[i].st.numlist,res[i+1].st.numlist)
-    for i in res:
-        print(i.st.numlist)
-    print(s)
- 
+idx = 0
+def next(event):
+    global idx
+    i = res[idx]
+    print(i.st.numlist)
+    tk.cnv.delete("all")
+    tk.cnv.create_rectangle(0,0,400,400,fill="#FFFF85")
+    tk.drawState(i.st.numlist)
+    idx += 1
+tk.cnv.focus_set()
+tk.scr.bind_all("<Button-1>",next)
+tk.scr.mainloop()
