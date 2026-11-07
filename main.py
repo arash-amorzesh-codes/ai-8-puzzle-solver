@@ -1,7 +1,7 @@
 from graph import StateGraph
 from states import State
 import tk
-from time import sleep
+#from time import sleep
 sg = None
 with open("inputs.txt","r") as f:
     s = f.read()
