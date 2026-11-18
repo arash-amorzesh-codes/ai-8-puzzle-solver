@@ -16,6 +16,8 @@ if res == None:
 idx = 0
 def next(event):
     global idx
+    if idx>=len(res):
+        return
     i = res[idx]
     print(i.st.numlist)
     tk.cnv.delete("all")

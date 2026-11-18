@@ -1,6 +1,6 @@
-#0  1  2
-#3  4  5
-#6  7  8
+#1  2  3
+#4  5  6
+#7  8  0
 #0 is free space
 #x = n%3 , y = n//3
 #lst indexes are positions and values are tiles
@@ -15,7 +15,7 @@ class State:
         self.numlist = lst
         self.manhatandist = 0
         for pos in range(9):#changes to range(16)
-            tile = self.numlist[pos]
+            tile = (self.numlist[pos]-1)%9
             if tile != 0:
                 self.manhatandist += mdist(pos, tile)
     def nextStates(self):
