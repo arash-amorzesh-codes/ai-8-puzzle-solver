@@ -1,4 +1,4 @@
-from graph import StateGraph
+from tree import StateTree
 from states import State
 import tk
 #from time import sleep
@@ -9,8 +9,8 @@ with open("inputs.txt","r") as f:#change input file
     for i in s:
         if i in '0123456789ABCDEF':
             lst.append('0123456789ABCDEF'.index(i))
-    sg = StateGraph(State(lst))
-res = sg.A_star()
+    sg = StateTree(State(lst))
+res = sg.IDS()
 if res == None:
     print('puzzle is unsolveable')
 idx = 0

@@ -4,7 +4,7 @@ class Node:
         self.st = s
         self.pre = None
         self.nexts = []
-class StateGraph:
+class StateTree:
     def __init__(self,start):
         self.head = Node(start)
     def visit(self,nd):
@@ -12,6 +12,29 @@ class StateGraph:
             x = Node(i)
             x.pre = nd
             nd.nexts.append(x)
+    def IDS(self):
+        n = 0
+        while True:
+            print('looking n =',n)
+            stack = [(self.head,0)]
+            while True:
+                if len(stack)==0:
+                    break
+                c = stack.pop()
+                current = c[0]
+                self.visit(current)
+                if current.st.manhatandist == 0:
+                    path = []
+                    while current is not None:
+                        path.append(current)
+                        current = current.pre
+                    return path[::-1]
+                if c[1]>=n:
+                    continue
+                else:
+                    for x in current.nexts:
+                        stack.append((x,c[1]+1))
+            n+=1
     def A_star(self):
         fringe = PriorityQueue(1000000)
         fringe.insert(self.head, self.head.st.manhatandist)
