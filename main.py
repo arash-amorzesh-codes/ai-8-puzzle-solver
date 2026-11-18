@@ -3,12 +3,12 @@ from states import State
 import tk
 #from time import sleep
 sg = None
-with open("inputs.txt","r") as f:
+with open("inputs.txt","r") as f:#change input file
     s = f.read()
     lst = []
     for i in s:
-        if i.isnumeric():
-            lst.append(int(i))
+        if i in '0123456789ABCDEF':
+            lst.append('0123456789ABCDEF'.index(i))
     sg = StateGraph(State(lst))
 res = sg.A_star()
 if res == None:
