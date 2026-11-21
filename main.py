@@ -1,7 +1,7 @@
 from tree import StateTree
 from states import State
 import tk
-#from time import sleep
+from time import time
 sg = None
 with open("inputs.txt","r") as f:#change input file
     s = f.read()
@@ -10,7 +10,10 @@ with open("inputs.txt","r") as f:#change input file
         if i in '0123456789ABCDEF':
             lst.append('0123456789ABCDEF'.index(i))
     sg = StateTree(State(lst))
+start = time()
 res = sg.IDS()
+end = time()
+print("ran for ",end-start)
 if res == None:
     print('puzzle is unsolveable')
 idx = 0
