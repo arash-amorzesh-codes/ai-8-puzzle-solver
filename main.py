@@ -5,7 +5,14 @@ from tkinter import simpledialog, messagebox
 from time import time
 method = simpledialog.askinteger("hello","1: Default puzzle\n2: Enter a puzzle\n3: Shuffle the solved puzzle",minvalue=1,maxvalue=3)
 if method == 1:
-    lst = [7,2,4,5,0,6,8,3,1]
+    lst = []
+    with open("inputs.txt") as f:
+        s = f.read()
+        for i in s:
+            if i in '0123456789ABCDEF':
+                lst.append('0123456789ABCDEF'.index(i))
+    if sorted(lst) != list(range(9)):
+        messagebox.showerror("JOHN CENA SAYS:","not valid file")
 elif method == 2:
     s = simpledialog.askstring("hello","Enter the 9 numbers from 0 to 8, separated by spaces:")
     if s is None:
