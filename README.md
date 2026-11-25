@@ -5,7 +5,7 @@ the goal state is :
 1 2 3
 4 5 6
 7 8 0
-if the puzzle is solveable it prints works to do to solve the puzzle
+if the puzzle is solveable it prints states to both log and gui to do to solve the puzzle
 ## Technologies
  . Python
 
