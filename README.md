@@ -1,6 +1,6 @@
 # AI 8 puzzle solver
-This code uses A* to solve 8 puzzle
-the input is read from inputs.txt file
+This code uses A* and IDS to solve 8 puzzle
+the input is read from inputs.txt file, entered with keybord, and shuffled by hand
 the goal state is :
 1 2 3
 4 5 6

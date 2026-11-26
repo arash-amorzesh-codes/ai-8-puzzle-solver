@@ -1,5 +1,6 @@
 import tkinter
 scr = tkinter.Tk("game")
+scr.geometry("400x400+260+260")
 cnv = tkinter.Canvas(scr,width=400,height=400)
 cnv.place(x=0,y=0)
 cnv.create_rectangle(0,0,400,400,fill="#FFFF85")
